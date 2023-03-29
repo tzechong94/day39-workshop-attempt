@@ -1,0 +1,15 @@
+<h2>Choose your Character</h2>
+
+<table *ngIf="characters">
+    <tr *ngFor="let character of characters">
+        <td>{{character.name}}</td>
+    </tr>
+    <tr>
+        <td>
+            <button type="button" (click)="previous()">Previous</button>
+        </td>
+        <td>
+            <button type="button" (click)="next()">Next</button>
+        </td>
+    </tr>
+</table>
