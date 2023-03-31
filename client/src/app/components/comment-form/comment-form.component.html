@@ -1,1 +1,17 @@
-<p>comment-form works!</p>
+<h2>Comment - {{characterName}}</h2>
+
+<form [formGroup]="form" (submit)="postCommentById()">
+    <table>
+        <tr>
+            <input formControlName="comment">
+        </tr>
+        <tr>
+            <td>
+                <button type="button" [routerLink]="['../']">Cancel</button>
+            </td>
+            <td>
+                <button type="submit" [disabled]="form.invalid">Post</button>
+            </td>
+        </tr>
+    </table>
+</form>

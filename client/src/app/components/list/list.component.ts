@@ -10,7 +10,7 @@ import { CharacterService } from 'src/app/service/character.service';
 })
 export class ListComponent implements OnInit {
 
-  characters?: Character[];
+  characters!: Character[];
 
   constructor(private charSvc: CharacterService, private router: Router) {}
 
@@ -28,6 +28,10 @@ export class ListComponent implements OnInit {
       )
       console.log(this.characters)
   }
+
+  // characterPage(characterId: number) {
+  //   this.router.navigate(["/characters/" + characterId])
+  // }
 
 
 }

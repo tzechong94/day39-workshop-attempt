@@ -2,7 +2,9 @@
 
 <table *ngIf="characters">
     <tr *ngFor="let character of characters">
-        <td>{{character.name}}</td>
+        <a [routerLink]="['/characters/', character.id]">
+            <td>{{character.name}}</td>
+        </a>
     </tr>
     <tr>
         <td>

@@ -11,6 +11,8 @@ export class CharacterService {
   characterSearched: string = ""
   characters: Character[] = []
 
+  currentCharacter!: string
+  
   constructor(private http: HttpClient) { }
 
   async getCharacters(searchInput: string) {
@@ -20,4 +22,14 @@ export class CharacterService {
     return firstValueFrom(this.http.get("/api/characters", { params }))
     
   }
+
+  getCharacterById(characterId: string){
+    console.log(characterId)
+    return firstValueFrom(this.http.get(`/api/character/${characterId}`))
+  }
+
+  postCommentById(characterId: string, newComment: string) {
+    return firstValueFrom(this.http.post(`/api/character/${characterId}`, newComment))
+  }
+
 }

@@ -1,1 +1,14 @@
-<p>character works!</p>
+<div *ngIf="character">
+    <img src="{{character.thumbnail}}/portrait_xlarge.jpg">
+
+    <h1>{{character.name}}</h1>
+    
+    <p>{{character.description}}</p>
+    
+    <button [routerLink]='["./comment"]' type="button" (click)="commentButton() ">Comment</button>
+
+    <ul>
+        <li *ngFor="let c of character.comments">{{c}}</li>
+    </ul>
+</div>
+

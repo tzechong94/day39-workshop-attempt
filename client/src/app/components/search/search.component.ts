@@ -20,8 +20,8 @@ sub$!: Subscription
 search() {
   console.log("search")
   // this.charSvc.characterSearched = this.form.value.searchInput
-  console.log("character searched", this.charSvc.characterSearched)
   this.charSvc.characterSearched = this.form.value.searchInput
+  console.log("character searched", this.charSvc.characterSearched)
   this.router.navigate(["list"])
 }
 

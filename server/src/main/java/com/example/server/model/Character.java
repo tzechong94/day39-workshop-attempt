@@ -1,5 +1,8 @@
 package com.example.server.model;
 
+import java.util.List;
+
+import jakarta.json.Json;
 import jakarta.json.JsonObject;
 
 public class Character {
@@ -8,7 +11,16 @@ public class Character {
     private String name;
     private String description;
     private String thumbnail;
+    private List<String> comments;
 
+
+    public List<String> getComments() {
+        return comments;
+    }
+
+    public void setComments(List<String> comments) {
+        this.comments = comments;
+    }
 
     public static Character toCharacter(JsonObject obj){
         Character character = new Character();
@@ -17,6 +29,16 @@ public class Character {
         character.setDescription(obj.getString("description"));
         character.setThumbnail(obj.getJsonObject("thumbnail").getString("path"));
         return character;
+    }
+
+    public JsonObject toJson() {
+        JsonObject obj = Json.createObjectBuilder()
+                        .add("id", this.getId())
+                        .add("description", this.getDescription())
+                        .add("thumbnail", this.getThumbnail())
+                        .add("name", this.getName())
+                        .build();
+        return obj;
     }
 
 
